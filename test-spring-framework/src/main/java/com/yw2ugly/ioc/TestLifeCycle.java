@@ -80,7 +80,6 @@ public class TestLifeCycle {
         public void afterPropertiesSet() throws Exception {
             log.info("{} LifeCycleBean InitializationBean afterPropertiesSet method",count++);
         }
-
     }
 
     @Slf4j

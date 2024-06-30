@@ -18,7 +18,8 @@
     <modules>
         <module>test-spring-framework</module>
         <module>test-aop</module>
-      <module>test-jackson-lib</module>
+        <module>test-jackson-lib</module>
+       <module>test-spring-boot</module>
     </modules>
 
     <properties>

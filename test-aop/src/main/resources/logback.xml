@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 定义上下文名称 -->
+    <contextName>myApp</contextName>
+
+    <!-- 配置控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--&lt;!&ndash; 配置文件输出 &ndash;&gt;
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        &lt;!&ndash; 日志文件位置 &ndash;&gt;
+        <file>logs/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            &lt;!&ndash; 日志文件名模式 &ndash;&gt;
+            <fileNamePattern>logs/app.%d{yyyy-MM-dd}.log</fileNamePattern>
+            &lt;!&ndash; 保留的最大历史日志文件数 &ndash;&gt;
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>-->
+
+    <!-- 配置日志级别 -->
+    <root level="info">
+        <!-- 添加控制台输出 -->
+        <appender-ref ref="STDOUT" />
+        <!-- 添加文件输出 -->
+        <!--<appender-ref ref="FILE" />-->
+    </root>
+
+    <!-- 单独配置某个包或类的日志级别 -->
+    <logger name="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator" level="trace" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+</configuration>

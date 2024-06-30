@@ -95,6 +95,11 @@ public class TestAspectAdvisorSwitch {
         public void before(){
             log.info("Before advice ...");
         }
+        @SuppressWarnings("ArgNamesErrorsInspection")
+        @Before("execution(* foo())) && args(x)") //动态通知，参数绑定，InterceptorAndDynamicMethodMatcher
+        public void before(int x) {
+            log.info("Before advice, x: {} ...", x);
+        }
         @After("execution(* foo()))")
         public void after(){
             log.info("After advice ...");
@@ -115,5 +120,6 @@ public class TestAspectAdvisorSwitch {
 
     static class F {
         public void foo(){};
+        public void foo(int x){};
     }
 }
